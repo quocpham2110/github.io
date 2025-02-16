@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us</title>
+    <title>Edit Contact</title>
     <!--CSS Section-->
     <link rel="stylesheet" href="./content/app.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 <header></header>
 
 <main class="container">
-    <h1>Contact Us</h1>
+    <h1>Edit Contact</h1>
 
     <form class="col-lg-6 col-md-10 col-sm-12 mb-4">
 
@@ -37,32 +37,19 @@
             <span id="emailAddress-error" class="text-danger w-100"></span>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text">Message Area: </span>
-            <textarea id="message" name="message" class="form-control"
-                      aria-describedby="Message Area" aria-label="Message Area">
-            </textarea>
-        </div>
-
         <div class="mb-3 form-check">
             <input id="subscribeCheckbox" name="subscribeCheckbox" type="checkbox" class="form-check-input me-2">
             <label class="form-check-label" for="subscribeCheckbox">Subscribe to our Contact List</label>
         </div>
 
-        <button id="sendButton" type="submit" class="btn btn-primary">
-            <i class="fa-solid fa-check me-1"></i>Submit
+        <button id="editButton" type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-pen me-1"></i>Edit
         </button>
         <button id="cancelButton" type="reset" class="btn btn-warning">
             <i class="fa-solid fa-xmark me-1"></i>Cancel
         </button>
 
     </form>
-
-    <div class="col-lg-4 col-md-6">
-        <a href="contact-list.html" class="btn btn-outline-primary mt-4">
-            <i class="fa-solid fa-user-group me-1"></i>Show Contact List
-        </a>
-    </div>
 </main>
 
 <!--Scripting Section-->
