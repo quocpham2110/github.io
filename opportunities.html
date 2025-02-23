@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opportunities Page</title>
+    <!--CSS Section-->
+    <link rel="stylesheet" href="content/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+<body>
+<header>
+</header>
+
+<!-- Main content -->
+<main class="container">
+    <h1 class="text-center my-4">Opportunities page</h1>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="signUpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="signUpModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="signUpModalLabel">Sign Up</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="fullName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="emailAddress">
+                    </div>
+                    <div class="mb-3">
+                        <label for="preferredRole" class="form-label">Preferred role</label>
+                        <input type="text" class="form-control" id="preferredRole">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="submitButtonModal" type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-share-from-square me-1"></i>Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Scripting Section-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/userDetails.js"></script>
+
+</body>
+</html>

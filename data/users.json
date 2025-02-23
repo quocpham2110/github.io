@@ -1,65 +1,20 @@
-{
-  "users": [
-    {
-      "DisplayName": "Alex Carter",
-      "EmailAddress": "alex.carter@example.com",
-      "Username": "alexcarter",
-      "Password": "123123"
-    },
-    {
-      "DisplayName": "Jordan Smith",
-      "EmailAddress": "jordan.smith@example.com",
-      "Username": "jordansmith",
-      "Password": "SecurePass45$"
-    },
-    {
-      "DisplayName": "Casey Lee",
-      "EmailAddress": "casey.lee@example.com",
-      "Username": "caseylee",
-      "Password": "Casey!789"
-    },
-    {
-      "DisplayName": "Taylor Morgan",
-      "EmailAddress": "taylor.morgan@example.com",
-      "Username": "taylormorgan",
-      "Password": "Taylor#2024"
-    },
-    {
-      "DisplayName": "Riley Parker",
-      "EmailAddress": "riley.parker@example.com",
-      "Username": "rileyparker",
-      "Password": "RileyP@ss99"
-    },
-    {
-      "DisplayName": "Drew Adams",
-      "EmailAddress": "drew.adams@example.com",
-      "Username": "drewadams",
-      "Password": "DrewA$987"
-    },
-    {
-      "DisplayName": "Morgan Bailey",
-      "EmailAddress": "morgan.bailey@example.com",
-      "Username": "morganbailey",
-      "Password": "Morgan*Pass66"
-    },
-    {
-      "DisplayName": "Jamie Collins",
-      "EmailAddress": "jamie.collins@example.com",
-      "Username": "jamiecollins",
-      "Password": "Jamie123!"
-    },
-    {
-      "DisplayName": "Skyler Reed",
-      "EmailAddress": "skyler.reed@example.com",
-      "Username": "skylerreed",
-      "Password": "Skyler%Reed77"
-    },
-    {
-      "DisplayName": "Charlie Brooks",
-      "EmailAddress": "charlie.brooks@example.com",
-      "Username": "charliebrooks",
-      "Password": "CharBrooks456!"
-    }
-  ]
-}
-
+[
+  {
+    "DisplayName": "Alex Carter",
+    "EmailAddress": "alex.carter@example.com",
+    "Username": "alexcarter",
+    "Password": "123123"
+  },
+  {
+    "DisplayName": "Jordan Smith",
+    "EmailAddress": "jordan.smith@example.com",
+    "Username": "jordansmith",
+    "Password": "SecurePass45$"
+  },
+  {
+    "DisplayName": "Casey Lee",
+    "EmailAddress": "casey.lee@example.com",
+    "Username": "caseylee",
+    "Password": "Casey!789"
+  }
+]

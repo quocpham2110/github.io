@@ -2,74 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us</title>
+    <title>Contact Us Page</title>
     <!--CSS Section-->
-    <link rel="stylesheet" href="./content/app.css">
+    <link rel="stylesheet" href="content/style.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
 </head>
 <body>
-<header></header>
+<header>
+</header>
 
+<!-- Main content -->
 <main class="container">
-    <h1>Contact Us</h1>
-
-    <form class="col-lg-6 col-md-10 col-sm-12 mb-4">
-
-        <div class="input-group mb-3">
-            <label for="fullName" class="input-group-text">Full name: </label>
-            <input id="fullName" name="fullName" type="text" class="form-control"
-                   aria-describedby="fullName-error" aria-label="Full Name" required>
-            <span id="fullName-error" class="text-danger w-100"></span>
-        </div>
-
-        <div class="input-group mb-3">
-            <label for="contactNumber" class="input-group-text">Contact number: </label>
-            <input id="contactNumber" name="contactNumber" type="tel" class="form-control"
-                   aria-describedby="contactNumber-error" aria-label="Contact Number" required>
-            <span id="contactNumber-error" class="text-danger w-100"></span>
-        </div>
-
-        <div class="input-group mb-3">
-            <label for="emailAddress" class="input-group-text">Email address: </label>
-            <input id="emailAddress" name="emailAddress" type="email" class="form-control"
-                   aria-describedby="emailAddress-error" aria-label="Email Address" required>
-            <span id="emailAddress-error" class="text-danger w-100"></span>
-        </div>
-
-        <div class="input-group mb-3">
-            <span class="input-group-text">Message Area: </span>
-            <textarea id="message" name="message" class="form-control"
-                      aria-describedby="Message Area" aria-label="Message Area">
-            </textarea>
-        </div>
-
-        <div class="mb-3 form-check">
-            <input id="subscribeCheckbox" name="subscribeCheckbox" type="checkbox" class="form-check-input me-2">
-            <label class="form-check-label" for="subscribeCheckbox">Subscribe to our Contact List</label>
-        </div>
-
-        <button id="sendButton" type="submit" class="btn btn-primary">
-            <i class="fa-solid fa-check me-1"></i>Submit
-        </button>
-        <button id="cancelButton" type="reset" class="btn btn-warning">
-            <i class="fa-solid fa-xmark me-1"></i>Cancel
-        </button>
-
-    </form>
-
-    <div class="col-lg-4 col-md-6">
-        <a href="contact-list.html" class="btn btn-outline-primary mt-4">
-            <i class="fa-solid fa-user-group me-1"></i>Show Contact List
-        </a>
+    <h1 class="text-center my-4">Contact Us</h1>
+    <div class="row justify-content-center">
+        <form class="col-lg-6 col-md-10 col-sm-12 mb-4">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full name</label>
+                <input type="text" class="form-control" id="fullName">
+            </div>
+            <div class="mb-3">
+                <label for="emailAddress" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="emailAddress">
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control"
+                          aria-describedby="Message Area" aria-label="Message Area">
+                </textarea>
+            </div>
+            <div class="text-center">
+                <button id="sendButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
+                    <i class="fa-solid fa-check me-1"></i>Submit
+                </button>
+            </div>
+        </form>
     </div>
 </main>
 
+<!-- Modal -->
+<div id="messageModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Scripting Section-->
-<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="./scripts/namespace.js"></script>
-<script src="./scripts/contact.js"></script>
-<script src="./scripts/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/contact.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Page</title>
+    <title>Gallery Page</title>
     <!--CSS Section-->
     <link rel="stylesheet" href="content/style.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -14,7 +14,16 @@
 
 <!-- Main content -->
 <main class="container">
-    <h1 class="text-center my-4">About page</h1>
+    <h1 class="text-center my-4">Gallery page</h1>
+    <section id="gallery" class="row row-gap-3"></section>
+    <div class="modal fade" id="lightbox" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+        </div>
+        <div class="position-absolute top-50 start-50 translate-middle bg-light bg-gradient p-5 pb-0 rounded col-12 col-sm-8 col-xl-6">
+            <img class="w-100" src="" alt=""/>
+            <p class="text-center m-0 py-4 fst-italic fw-semibold"></p>
+        </div>
+    </div>
 </main>
 
 <!--Scripting Section-->
