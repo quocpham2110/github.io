@@ -139,10 +139,10 @@
     function NewsCard(news) {
         return `
             <div class="card col-sm-5 py-2">
-              <img src=${news.urlToImage} class="card-img-top" alt="article image">
-              <div class="card-body">
-                <h5 class="card-title">${news.title}</h5>
-                <p class="card-text">${news.description}</p>
+                <img src=${news.image} class="card-img-top" alt="article image">
+                <div class="card-body">
+                    <h5 class="card-title">${news.title}</h5>
+                    <p class="card-text">${news.description}</p>
                 <div class="text-center">
                     <a href=${news.url} class="btn btn-primary" target="_blank">View more</a>
                 </div>                
@@ -155,9 +155,7 @@
      * Using external API to load news
      */
     async function GetNewsUsingApi(search = "") {
-        const url = 'https://newsapi.org/v2/top-headlines?' +
-            'country=us&' +
-            'apiKey=5c729f64155847d984d72c917742190c';
+        const url = 'https://api.mediastack.com/v1/news?access_key=bcb8605a288beccc48d76f40cf67a887'
 
         const articlesElement = document.querySelector('#articles');
         const noNewsMessage = document.createElement('p');
@@ -166,40 +164,30 @@
         try {
             const response = await fetch(url);
             const data = await response.json();
+            if (data.error) {
+                articlesElement.innerHTML = ""
+                noNewsMessage.innerText = data.error.message
+                articlesElement.appendChild(noNewsMessage);
+            } else {
+                if (data.data.length > 0) {
+                    const filteredArticles = search.trim() ? data.data.filter(article =>
+                                    article.title?.toLowerCase().includes(search.trim().toLowerCase()) ||
+                        article.description?.toLowerCase().includes(search.trim().toLowerCase())
+                    ) : data.data
 
-            switch (data.status) {
-                case "ok": {
-                    if (data.totalResults > 0) {
-                        const filteredArticles = search.trim() ? data.articles.filter(article =>
-                            article.title?.toLowerCase().includes(search.trim().toLowerCase()) ||
-                            article.description?.toLowerCase().includes(search.trim().toLowerCase())
-                        ) : data.articles
-
-                        if (filteredArticles.length > 0) {
-                            articlesElement.innerHTML = ""
-                            filteredArticles.forEach((article) => {
-                                const news = NewsCard(article);
-                                if (article.description) {
-                                    articlesElement.innerHTML += news;
-                                }
-                            })
-                        } else {
-                            articlesElement.innerHTML = ""
-                            articlesElement.appendChild(noNewsMessage);
-                        }
+                    if (filteredArticles.length > 0) {
+                        articlesElement.innerHTML = ""
+                        filteredArticles.forEach((article) => {
+                            const news = NewsCard(article);
+                            if (article.image) {
+                                articlesElement.innerHTML += news;
+                            }
+                        })
                     } else {
                         articlesElement.innerHTML = ""
                         articlesElement.appendChild(noNewsMessage);
                     }
-                }
-                    break;
-
-                case "error": {
-                    alert(data.message);
-                }
-                    break;
-
-                default: {
+                } else {
                     articlesElement.innerHTML = ""
                     articlesElement.appendChild(noNewsMessage);
                 }
@@ -259,6 +247,11 @@
             const searchBtn = document.querySelector("#searchButton");
             searchBtn.addEventListener("click", (e) => {
                 e.preventDefault();
+                document.querySelector('#articles').innerHTML = `
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                `;
                 GetNewsUsingApi(search.value);
             })
         }
