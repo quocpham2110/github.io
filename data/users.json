@@ -1,20 +1,23 @@
-[
-  {
-    "DisplayName": "Alex Carter",
-    "EmailAddress": "alex.carter@example.com",
-    "Username": "alexcarter",
-    "Password": "123123"
-  },
-  {
-    "DisplayName": "Jordan Smith",
-    "EmailAddress": "jordan.smith@example.com",
-    "Username": "jordansmith",
-    "Password": "SecurePass45$"
-  },
-  {
-    "DisplayName": "Casey Lee",
-    "EmailAddress": "casey.lee@example.com",
-    "Username": "caseylee",
-    "Password": "Casey!789"
-  }
-]
+{
+  "users" :
+  [
+    {
+      "DisplayName" : "Bilbo Baggins",
+      "EmailAddress" : "bilbo@durhamcollege.ca",
+      "Username" : "bbaggins",
+      "Password" : "123456"
+    },
+    {
+      "DisplayName" : "Samwise Gamgee",
+      "EmailAddress" : "samwise@durhamcollege.ca",
+      "Username" : "sgamgee",
+      "Password" : "789012"
+    },
+    {
+      "DisplayName" : "admin",
+      "EmailAddress" : "admin@durhamcollege.ca",
+      "Username" : "admin",
+      "Password" : "password"
+    }
+  ]
+}
