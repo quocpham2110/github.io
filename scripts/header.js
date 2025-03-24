@@ -31,7 +31,7 @@ function CheckLogin() {
         });
         const loginNav = document.getElementById('loginNav');
         loginNav.innerHTML = `<i class="fa-solid fa-right-from-bracket"></i> Logout`;
-        loginNav.href = '/login';
+        loginNav.href = '/github.io/login';
         // Add a welcome message to the navbar
         const welcomeMessage = document.createElement('p');
         welcomeMessage.classList.add('welcome-message', 'mb-0');
@@ -40,7 +40,7 @@ function CheckLogin() {
         loginNav.addEventListener('click', function (event) {
             event.preventDefault();
             sessionStorage.removeItem('user');
-            location.href = '/login';
+            location.href = '/github.io/login';
         });
     }
     else {
@@ -65,7 +65,7 @@ function DynamicNavbar() {
     // Add a "Donate" link to navbar
     const navbarNav = document.querySelector('.navbar-nav');
     navbarNav.innerHTML += `<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="donate">
+								<a class="nav-link" aria-current="page" href="/github.io/donate">
 									<i class="fa-solid fa-hand-holding-dollar me-1"></i></i>Donate
 								</a>
 							</li>`;

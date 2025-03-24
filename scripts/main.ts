@@ -15,39 +15,39 @@ import {LoadFooter} from './footer.js';
 declare const Chart: any; // Add this line at the top of your file, after the imports
 
 const pageTitle: Record<string, string> = {
-    '/': 'Home Page',
-    '/home': 'Home Page',
-    '/about': 'About Page',
-    '/contact': 'Contact Us Page',
-    '/donate': 'Donate Page',
-    '/events': 'Events Page',
-    '/gallery': 'Gallery Page',
-    '/login': 'Login Page',
-    '/news': 'News Page',
-    '/opportunities': 'Opportunities Page',
-    '/privacy-policy': 'Privacy Policy Page',
-    '/terms-service': 'Terms of Service Page',
-    '/404': 'Page Not Found',
-    '/statistics': 'Statistics Page',
-    '/event-planning': 'Event Planning Page',
+    '/github.io/': 'Home Page',
+    '/github.io/home': 'Home Page',
+    '/github.io/about': 'About Page',
+    '/github.io/contact': 'Contact Us Page',
+    '/github.io/donate': 'Donate Page',
+    '/github.io/events': 'Events Page',
+    '/github.io/gallery': 'Gallery Page',
+    '/github.io/login': 'Login Page',
+    '/github.io/news': 'News Page',
+    '/github.io/opportunities': 'Opportunities Page',
+    '/github.io/privacy-policy': 'Privacy Policy Page',
+    '/github.io/terms-service': 'Terms of Service Page',
+    '/github.io/404': 'Page Not Found',
+    '/github.io/statistics': 'Statistics Page',
+    '/github.io/event-planning': 'Event Planning Page',
 };
 
 const routes: RouterMap = {
-    '/': 'views/content/home.html',
-    '/home': 'views/content/home.html',
-    '/about': 'views/content/about.html',
-    '/contact': 'views/content/contact.html',
-    '/donate': 'views/content/donate.html',
-    '/events': 'views/content/events.html',
-    '/gallery': 'views/content/gallery.html',
-    '/login': 'views/content/login.html',
-    '/news': 'views/content/news.html',
-    '/opportunities': 'views/content/opportunities.html',
-    '/privacy-policy': 'views/content/privacy-policy.html',
-    '/terms-service': 'views/content/terms-service.html',
-    '/404': 'views/content/404.html',
-    '/statistics': 'views/content/statistics.html',
-    '/event-planning': 'views/content/event-planning.html',
+    '/github.io/': 'views/content/home.html',
+    '/github.io/home': 'views/content/home.html',
+    '/github.io/about': 'views/content/about.html',
+    '/github.io/contact': 'views/content/contact.html',
+    '/github.io/donate': 'views/content/donate.html',
+    '/github.io/events': 'views/content/events.html',
+    '/github.io/gallery': 'views/content/gallery.html',
+    '/github.io/login': 'views/content/login.html',
+    '/github.io/news': 'views/content/news.html',
+    '/github.io/opportunities': 'views/content/opportunities.html',
+    '/github.io/privacy-policy': 'views/content/privacy-policy.html',
+    '/github.io/terms-service': 'views/content/terms-service.html',
+    '/github.io/404': 'views/content/404.html',
+    '/github.io/statistics': 'views/content/statistics.html',
+    '/github.io/event-planning': 'views/content/event-planning.html',
 };
 
 const router: Router = new Router(routes);
@@ -339,7 +339,7 @@ const router: Router = new Router(routes);
     // Listen for session expired event to redirect to login page
     window.addEventListener('sessionExpired', () => {
         console.warn('[WARN] Redirecting to login page due to inactively');
-        router.navigate('/login');
+        router.navigate('/github.io/login');
     });
 
     type User = {
@@ -365,7 +365,7 @@ const router: Router = new Router(routes);
     function LoginPage() {
         const authenticatedUser: string = sessionStorage.getItem('user') || '';
         if (authenticatedUser) {
-            router.navigate("/");
+            router.navigate("/github.io");
         }
 
         const username = document.getElementById('username') as HTMLInputElement;
@@ -398,7 +398,7 @@ const router: Router = new Router(routes);
 
                         messageArea.classList.add('d-none');
                         messageArea.classList.remove('d-block');
-                        // router.navigate('/opportunities');
+                        // router.navigate('/github.io/opportunities');
                         history.go(-1); // go back to the previous page after login successfully
                     } else {
                         messageArea.classList.remove('d-none');
@@ -599,7 +599,7 @@ const router: Router = new Router(routes);
 
         const getInvolvedBtn = document.getElementById('getInvolvedButton') as HTMLButtonElement;
         getInvolvedBtn.addEventListener('click', function () {
-            router.navigate('/opportunities');
+            router.navigate('/github.io/opportunities');
         });
     }
 
@@ -845,7 +845,7 @@ const router: Router = new Router(routes);
                                            </p>`;
                             timer--;
                         } else {
-                            router.navigate('/index');
+                            router.navigate('/github.io/');
                         }
                     }
 

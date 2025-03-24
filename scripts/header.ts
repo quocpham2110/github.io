@@ -37,7 +37,7 @@ function CheckLogin() {
 
 		const loginNav = document.getElementById('loginNav') as HTMLAnchorElement;
 		loginNav.innerHTML = `<i class="fa-solid fa-right-from-bracket"></i> Logout`;
-		loginNav.href = '/login';
+		loginNav.href = '/github.io/login';
 
 		// Add a welcome message to the navbar
 		const welcomeMessage = document.createElement('p');
@@ -48,7 +48,7 @@ function CheckLogin() {
 		loginNav.addEventListener('click', function (event: MouseEvent): void {
 			event.preventDefault();
 			sessionStorage.removeItem('user');
-			location.href = '/login';
+			location.href = '/github.io/login';
 		});
 	} else {
 		navbarLinks.forEach((link: HTMLAnchorElement) => {
@@ -74,7 +74,7 @@ function DynamicNavbar() {
 	// Add a "Donate" link to navbar
 	const navbarNav = document.querySelector('.navbar-nav') as HTMLElement;
 	navbarNav.innerHTML += `<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="donate">
+								<a class="nav-link" aria-current="page" href="/github.io/donate">
 									<i class="fa-solid fa-hand-holding-dollar me-1"></i></i>Donate
 								</a>
 							</li>`;
