@@ -40,7 +40,7 @@ function CheckLogin() {
         loginNav.addEventListener('click', function (event) {
             event.preventDefault();
             sessionStorage.removeItem('user');
-            location.href = '/login';
+            location.hash = '/login';
         });
     }
     else {
@@ -77,7 +77,7 @@ function DynamicNavbar() {
     }
     // Active the navbar element for current page
     [...navLinks].forEach((link) => {
-        if (document.title.includes(link.innerText)) {
+        if (location.hash.slice(1).includes(link.href.split('/').pop() || '')) {
             link.classList.add('active');
         }
         else if (document.title.includes('Opportunities') &&

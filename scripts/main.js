@@ -307,8 +307,7 @@ const router = new Router(routes);
                     }));
                     messageArea.classList.add('d-none');
                     messageArea.classList.remove('d-block');
-                    // router.navigate('/opportunities');
-                    history.go(-1); // go back to the previous page after login successfully
+                    router.navigate('/');
                 }
                 else {
                     messageArea.classList.remove('d-none');
@@ -677,7 +676,19 @@ const router = new Router(routes);
     function AboutPage() {
         console.log('AboutPage');
     }
+    /**
+    * Listen for changes and update the navigation links
+     */
+    document.addEventListener("routeLoaded", (event) => {
+        const customEvent = event;
+        const newPath = customEvent.detail; // extract the route from the event passed
+        console.log(`[INFO] Route Loaded: ${newPath}`);
+        LoadHeader().then(() => {
+            handlePageLogic(newPath);
+        });
+    });
     function handlePageLogic(path) {
+        console.log('handlePageLogic', path);
         document.title = pageTitle[path] || 'Untitled Page';
         switch (path) {
             case '/':
@@ -719,7 +730,8 @@ const router = new Router(routes);
         console.log('Starting...');
         await LoadHeader();
         await LoadFooter();
-        const currentPath = location.pathname;
+        const currentPath = location.hash.slice(1) || "/";
+        console.log("Current Path: ", currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
         // Create "Back to Top" button

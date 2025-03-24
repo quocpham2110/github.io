@@ -370,12 +370,8 @@ const router: Router = new Router(routes);
 
         const username = document.getElementById('username') as HTMLInputElement;
         const password = document.getElementById('password') as HTMLInputElement;
-        const loginButton = document.getElementById(
-            'loginButton'
-        ) as HTMLInputElement;
-        const messageArea = document.getElementById(
-            'messageArea'
-        ) as HTMLInputElement;
+        const loginButton = document.getElementById('loginButton') as HTMLInputElement;
+        const messageArea = document.getElementById('messageArea') as HTMLInputElement;
 
         loginButton.addEventListener('click', (e: MouseEvent): void => {
             e.preventDefault();
@@ -398,8 +394,7 @@ const router: Router = new Router(routes);
 
                         messageArea.classList.add('d-none');
                         messageArea.classList.remove('d-block');
-                        // router.navigate('/opportunities');
-                        history.go(-1); // go back to the previous page after login successfully
+                        router.navigate('/');
                     } else {
                         messageArea.classList.remove('d-none');
                         messageArea.classList.add('d-block', 'alert-danger');
@@ -862,7 +857,22 @@ const router: Router = new Router(routes);
         console.log('AboutPage');
     }
 
+    /**
+    * Listen for changes and update the navigation links
+     */
+    document.addEventListener("routeLoaded", (event: Event): void => {
+        const customEvent = event as CustomEvent
+        const newPath = customEvent.detail;   // extract the route from the event passed
+        console.log(`[INFO] Route Loaded: ${newPath}`);
+
+        LoadHeader().then(() => {
+            handlePageLogic(newPath);
+        });
+
+    });
+
     function handlePageLogic(path: string): void {
+        console.log('handlePageLogic', path);
         document.title = pageTitle[path] || 'Untitled Page';
 
         switch (path) {
@@ -907,14 +917,13 @@ const router: Router = new Router(routes);
         await LoadHeader();
         await LoadFooter();
 
-        const currentPath = location.pathname;
+        const currentPath = location.hash.slice(1) || "/";
+        console.log("Current Path: ", currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
 
         // Create "Back to Top" button
-        const backToTopButton = document.createElement(
-            'button'
-        ) as HTMLButtonElement;
+        const backToTopButton = document.createElement('button') as HTMLButtonElement;
         backToTopButton.innerHTML = `<i class="fa-solid fa-arrow-up"></i>`;
         // Add bootstrap classes for button
         backToTopButton.classList.add(

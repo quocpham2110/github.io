@@ -15,32 +15,36 @@ export class Router {
     }
 
     init(): void {
-
+        // window.addEventListener("DOMContentLoaded", () => {
+        //     const path = location.hash.slice(1) || "/";
+        //     console.log("[INFO] Inital Page Load: ", path);
+        //     this.loadRoute(path);
+        // })
+        
         // popstate fires when the user clicks the forward/ back  button in the browser
-        window.addEventListener("popstate", (): void => {
+        window.addEventListener("popstate", () => {
             console.log("[INFO] Navigating to...");
-            this.loadRoute(location.pathname);
+            this.loadRoute(location.hash.slice(1));
         });
 
     }
 
     navigate(path: string): void {
-        location.pathname = path;
+        location.hash = path;
     }
 
     async loadRoute(path: string): Promise<void> {
         console.log(`[INFO] Loading route: ${path}`);
 
-        // get the path only: index.html => index
-        const basePath: string = path || "";
+        const basePath = path.split("#")[0];
 
         if (!this.routes[basePath]) {
             console.warn(`[WARNING] Route not found: ${basePath}, redirecting to 404`);
-            location.pathname = "/404";
+            location.hash = "/404";
         }
 
-        return fetch(this.routes[basePath])
-            .then((response: Response): Promise<string> => {
+        await fetch(this.routes[basePath])
+            .then(response => {
                 if (!response.ok) throw new Error(`Failed to load ${this.routes[basePath]}`);
                 return response.text();
             })
@@ -52,11 +56,11 @@ export class Router {
                 }
 
                 // Ensure the for example the header is "reloaded" in "every" page change
-                LoadHeader().then((): void => {
+                LoadHeader().then(() => {
                     document.dispatchEvent(new CustomEvent("routeLoaded", {detail: basePath}));
                 });
 
             })
-            .catch((error: Error) => console.error("[ERROR] Error loading page:", error));
+            .catch(error => console.error("[ERROR] Error loading page:", error));
     }
 }

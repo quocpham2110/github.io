@@ -48,7 +48,7 @@ function CheckLogin() {
 		loginNav.addEventListener('click', function (event: MouseEvent): void {
 			event.preventDefault();
 			sessionStorage.removeItem('user');
-			location.href = '/login';
+			location.hash = '/login';
 		});
 	} else {
 		navbarLinks.forEach((link: HTMLAnchorElement) => {
@@ -80,7 +80,7 @@ function DynamicNavbar() {
 							</li>`;
 
 	// Change the "Opportunities" link text to "Volunteer Now"
-	const navLinks: NodeListOf<HTMLAnchorElement> =document.querySelectorAll('.navbar .nav-link');
+	const navLinks: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.navbar .nav-link');
 	const opportunitiesNavLink: HTMLAnchorElement | undefined = [...navLinks,].find((link: HTMLAnchorElement): boolean => link.innerText === 'Opportunities');
 	if (opportunitiesNavLink) {
 		opportunitiesNavLink.innerHTML = opportunitiesNavLink.innerHTML.replace('Opportunities','Volunteer Now');
@@ -88,7 +88,7 @@ function DynamicNavbar() {
 
 	// Active the navbar element for current page
 	[...navLinks].forEach((link: HTMLAnchorElement): void => {
-		if (document.title.includes(link.innerText)) {
+		if (location.hash.slice(1).includes(link.href.split('/').pop() || '')) {
 			link.classList.add('active');
 		} else if (
 			document.title.includes('Opportunities') &&
