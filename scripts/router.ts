@@ -15,11 +15,6 @@ export class Router {
     }
 
     init(): void {
-        // window.addEventListener("DOMContentLoaded", () => {
-        //     const path = location.hash.slice(1) || "/";
-        //     console.log("[INFO] Inital Page Load: ", path);
-        //     this.loadRoute(path);
-        // })
         
         // popstate fires when the user clicks the forward/ back  button in the browser
         window.addEventListener("popstate", () => {

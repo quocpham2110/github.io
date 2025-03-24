@@ -688,7 +688,6 @@ const router = new Router(routes);
         });
     });
     function handlePageLogic(path) {
-        console.log('handlePageLogic', path);
         document.title = pageTitle[path] || 'Untitled Page';
         switch (path) {
             case '/':
@@ -731,7 +730,6 @@ const router = new Router(routes);
         await LoadHeader();
         await LoadFooter();
         const currentPath = location.hash.slice(1) || "/";
-        console.log("Current Path: ", currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
         // Create "Back to Top" button

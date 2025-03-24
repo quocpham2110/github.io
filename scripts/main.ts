@@ -872,7 +872,6 @@ const router: Router = new Router(routes);
     });
 
     function handlePageLogic(path: string): void {
-        console.log('handlePageLogic', path);
         document.title = pageTitle[path] || 'Untitled Page';
 
         switch (path) {
@@ -918,7 +917,6 @@ const router: Router = new Router(routes);
         await LoadFooter();
 
         const currentPath = location.hash.slice(1) || "/";
-        console.log("Current Path: ", currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
 
