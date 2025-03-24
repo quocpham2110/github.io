@@ -908,13 +908,12 @@ const router: Router = new Router(routes);
         await LoadFooter();
 
         const currentPath = location.pathname;
+        console.log('[INFO] current path: ', currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
 
         // Create "Back to Top" button
-        const backToTopButton = document.createElement(
-            'button'
-        ) as HTMLButtonElement;
+        const backToTopButton = document.createElement('button') as HTMLButtonElement;
         backToTopButton.innerHTML = `<i class="fa-solid fa-arrow-up"></i>`;
         // Add bootstrap classes for button
         backToTopButton.classList.add(
