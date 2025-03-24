@@ -18,16 +18,16 @@ export class Router {
     }
     async loadRoute(path) {
         console.log(`[INFO] Loading route: ${path}`);
-        // Add /github.io/ prefix to the path for routing
-        const fullPath = '/github.io' + path;
-        if (!this.routes[fullPath]) {
-            console.warn(`[WARNING] Route not found: ${fullPath}, redirecting to 404`);
-            location.pathname = "/github.io/404";
+        // get the path only: index.html => index
+        const basePath = path || "";
+        if (!this.routes[basePath]) {
+            console.warn(`[WARNING] Route not found: ${basePath}, redirecting to 404`);
+            location.pathname = "/404";
         }
-        return fetch(this.routes[fullPath])
+        return fetch(this.routes[basePath])
             .then((response) => {
             if (!response.ok)
-                throw new Error(`Failed to load ${this.routes[fullPath]}`);
+                throw new Error(`Failed to load ${this.routes[basePath]}`);
             return response.text();
         })
             .then((html) => {
@@ -37,7 +37,7 @@ export class Router {
             }
             // Ensure the for example the header is "reloaded" in "every" page change
             LoadHeader().then(() => {
-                document.dispatchEvent(new CustomEvent("routeLoaded", { detail: fullPath }));
+                document.dispatchEvent(new CustomEvent("routeLoaded", { detail: basePath }));
             });
         })
             .catch((error) => console.error("[ERROR] Error loading page:", error));

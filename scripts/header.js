@@ -3,16 +3,16 @@ import { AuthGuard } from './authguard.js';
 /**
  * Using AJAX to load the header for every page
  */
-export async function LoadHeader() {
-    const headerElement = document.querySelector('header');
-    if (!headerElement)
-        return;
-    const response = await fetch('./views/components/header.html');
-    const data = await response.text();
-    headerElement.innerHTML = data;
-    DynamicNavbar();
-    CheckLogin();
-    await AuthGuard();
+export function LoadHeader() {
+    return fetch('./views/components/header.html')
+        .then((response) => response.text())
+        .then(async (data) => {
+        document.querySelector('header').innerHTML = data;
+        DynamicNavbar();
+        CheckLogin();
+        await AuthGuard();
+    })
+        .catch((error) => console.log('Cannot load the header', error));
 }
 /**
  * Check login status
@@ -31,7 +31,7 @@ function CheckLogin() {
         });
         const loginNav = document.getElementById('loginNav');
         loginNav.innerHTML = `<i class="fa-solid fa-right-from-bracket"></i> Logout`;
-        loginNav.href = '/github.io/login';
+        loginNav.href = '/login';
         // Add a welcome message to the navbar
         const welcomeMessage = document.createElement('p');
         welcomeMessage.classList.add('welcome-message', 'mb-0');
@@ -40,7 +40,7 @@ function CheckLogin() {
         loginNav.addEventListener('click', function (event) {
             event.preventDefault();
             sessionStorage.removeItem('user');
-            location.href = '/github.io/login';
+            location.href = '/login';
         });
     }
     else {
@@ -65,7 +65,7 @@ function DynamicNavbar() {
     // Add a "Donate" link to navbar
     const navbarNav = document.querySelector('.navbar-nav');
     navbarNav.innerHTML += `<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="/github.io/donate">
+								<a class="nav-link" aria-current="page" href="donate">
 									<i class="fa-solid fa-hand-holding-dollar me-1"></i></i>Donate
 								</a>
 							</li>`;

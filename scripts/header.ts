@@ -5,16 +5,16 @@ import { AuthGuard } from './authguard.js';
 /**
  * Using AJAX to load the header for every page
  */
-export async function LoadHeader() {
-	const headerElement = document.querySelector('header');
-	if (!headerElement) return;
-	
-	const response = await fetch('./views/components/header.html');
-	const data = await response.text();
-	headerElement.innerHTML = data;
-	DynamicNavbar();
-	CheckLogin();
-	await AuthGuard();
+export function LoadHeader(): Promise<void> {
+	return fetch('./views/components/header.html')
+		.then((response) => response.text())
+		.then(async (data) => {
+			(document.querySelector('header') as HTMLElement).innerHTML = data;
+			DynamicNavbar();
+			CheckLogin();
+			await AuthGuard();
+		})
+		.catch((error) => console.log('Cannot load the header', error));
 }
 
 /**
@@ -37,7 +37,7 @@ function CheckLogin() {
 
 		const loginNav = document.getElementById('loginNav') as HTMLAnchorElement;
 		loginNav.innerHTML = `<i class="fa-solid fa-right-from-bracket"></i> Logout`;
-		loginNav.href = '/github.io/login';
+		loginNav.href = '/login';
 
 		// Add a welcome message to the navbar
 		const welcomeMessage = document.createElement('p');
@@ -48,7 +48,7 @@ function CheckLogin() {
 		loginNav.addEventListener('click', function (event: MouseEvent): void {
 			event.preventDefault();
 			sessionStorage.removeItem('user');
-			location.href = '/github.io/login';
+			location.href = '/login';
 		});
 	} else {
 		navbarLinks.forEach((link: HTMLAnchorElement) => {
@@ -74,7 +74,7 @@ function DynamicNavbar() {
 	// Add a "Donate" link to navbar
 	const navbarNav = document.querySelector('.navbar-nav') as HTMLElement;
 	navbarNav.innerHTML += `<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="/github.io/donate">
+								<a class="nav-link" aria-current="page" href="donate">
 									<i class="fa-solid fa-hand-holding-dollar me-1"></i></i>Donate
 								</a>
 							</li>`;

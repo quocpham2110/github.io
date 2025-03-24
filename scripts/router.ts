@@ -31,17 +31,17 @@ export class Router {
     async loadRoute(path: string): Promise<void> {
         console.log(`[INFO] Loading route: ${path}`);
 
-        // Add /github.io/ prefix to the path for routing
-        const fullPath = '/github.io' + path;
+        // get the path only: index.html => index
+        const basePath: string = path || "";
 
-        if (!this.routes[fullPath]) {
-            console.warn(`[WARNING] Route not found: ${fullPath}, redirecting to 404`);
-            location.pathname = "/github.io/404";
+        if (!this.routes[basePath]) {
+            console.warn(`[WARNING] Route not found: ${basePath}, redirecting to 404`);
+            location.pathname = "/404";
         }
 
-        return fetch(this.routes[fullPath])
+        return fetch(this.routes[basePath])
             .then((response: Response): Promise<string> => {
-                if (!response.ok) throw new Error(`Failed to load ${this.routes[fullPath]}`);
+                if (!response.ok) throw new Error(`Failed to load ${this.routes[basePath]}`);
                 return response.text();
             })
             .then((html: string): void => {
@@ -53,7 +53,7 @@ export class Router {
 
                 // Ensure the for example the header is "reloaded" in "every" page change
                 LoadHeader().then((): void => {
-                    document.dispatchEvent(new CustomEvent("routeLoaded", {detail: fullPath}));
+                    document.dispatchEvent(new CustomEvent("routeLoaded", {detail: basePath}));
                 });
 
             })
