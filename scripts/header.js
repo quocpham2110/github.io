@@ -3,16 +3,16 @@ import { AuthGuard } from './authguard.js';
 /**
  * Using AJAX to load the header for every page
  */
-export function LoadHeader() {
-    return fetch('./views/components/header.html')
-        .then((response) => response.text())
-        .then(async (data) => {
-        document.querySelector('header').innerHTML = data;
-        DynamicNavbar();
-        CheckLogin();
-        await AuthGuard();
-    })
-        .catch((error) => console.log('Cannot load the header', error));
+export async function LoadHeader() {
+    const headerElement = document.querySelector('header');
+    if (!headerElement)
+        return;
+    const response = await fetch('./views/components/header.html');
+    const data = await response.text();
+    headerElement.innerHTML = data;
+    DynamicNavbar();
+    CheckLogin();
+    await AuthGuard();
 }
 /**
  * Check login status

@@ -33,21 +33,21 @@ const pageTitle: Record<string, string> = {
 };
 
 const routes: RouterMap = {
-    '/github.io/': './views/content/home.html',
-    '/github.io/home': './views/content/home.html',
-    '/github.io/about': './views/content/about.html',
-    '/github.io/contact': './views/content/contact.html',
-    '/github.io/donate': './views/content/donate.html',
-    '/github.io/events': './views/content/events.html',
-    '/github.io/gallery': './views/content/gallery.html',
-    '/github.io/login': './views/content/login.html',
-    '/github.io/news': './views/content/news.html',
-    '/github.io/opportunities': './views/content/opportunities.html',
-    '/github.io/privacy-policy': './views/content/privacy-policy.html',
-    '/github.io/terms-service': './views/content/terms-service.html',
-    '/github.io/404': './views/content/404.html',
-    '/github.io/statistics': './views/content/statistics.html',
-    '/github.io/event-planning': './views/content/event-planning.html',
+    '/github.io/': '/github.io/views/content/home.html',
+    '/github.io/home': '/github.io/views/content/home.html',
+    '/github.io/about': '/github.io/views/content/about.html',
+    '/github.io/contact': '/github.io/views/content/contact.html',
+    '/github.io/donate': '/github.io/views/content/donate.html',
+    '/github.io/events': '/github.io/views/content/events.html',
+    '/github.io/gallery': '/github.io/views/content/gallery.html',
+    '/github.io/login': '/github.io/views/content/login.html',
+    '/github.io/news': '/github.io/views/content/news.html',
+    '/github.io/opportunities': '/github.io/views/content/opportunities.html',
+    '/github.io/privacy-policy': '/github.io/views/content/privacy-policy.html',
+    '/github.io/terms-service': '/github.io/views/content/terms-service.html',
+    '/github.io/404': '/github.io/views/content/404.html',
+    '/github.io/statistics': '/github.io/views/content/statistics.html',
+    '/github.io/event-planning': '/github.io/views/content/event-planning.html',
 };
 
 const router: Router = new Router(routes);
@@ -613,11 +613,14 @@ const router: Router = new Router(routes);
     /**
      * Get the list of events using AJAX
      */
-    async function GetEventsList(): Promise<Opportunity[]> {
-        console.log('GetEventsList Content');
-
-        const response = await fetch('data/events.json');
-        return await response.json();
+    async function GetEventsData() {
+        try {
+            const response = await fetch('/github.io/data/events.json');
+            return await response.json();
+        }
+        catch (error) {
+            console.error('[ERROR] Cannot load events data:', error);
+        }
     }
 
     function OpportunitiesPage(): void {
@@ -629,7 +632,7 @@ const router: Router = new Router(routes);
         volunteerWrapper.classList.add('row', 'gap-2', 'justify-content-center');
         main.appendChild(volunteerWrapper);
 
-        const volunteerList = GetEventsList();
+        const volunteerList = GetEventsData();
 
         volunteerList.then((data: Opportunity[]): void => {
             // Create a bootstrap card and added into volunteer wrapper
@@ -776,7 +779,7 @@ const router: Router = new Router(routes);
             calendarBody.innerHTML = `${days.join('')}`;
 
             // Show Events on calendar
-            const volunteerList = await GetEventsList();
+            const volunteerList = await GetEventsData();
             let filteredVolunteerList;
             if (['cleanup', 'workshop', 'fundraiser'].includes(category.value)) {
                 filteredVolunteerList = volunteerList.filter(
