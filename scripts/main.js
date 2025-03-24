@@ -27,21 +27,21 @@ const pageTitle = {
     '/github.io/event-planning': 'Event Planning Page',
 };
 const routes = {
-    '/github.io/': 'views/content/home.html',
-    '/github.io/home': 'views/content/home.html',
-    '/github.io/about': 'views/content/about.html',
-    '/github.io/contact': 'views/content/contact.html',
-    '/github.io/donate': 'views/content/donate.html',
-    '/github.io/events': 'views/content/events.html',
-    '/github.io/gallery': 'views/content/gallery.html',
-    '/github.io/login': 'views/content/login.html',
-    '/github.io/news': 'views/content/news.html',
-    '/github.io/opportunities': 'views/content/opportunities.html',
-    '/github.io/privacy-policy': 'views/content/privacy-policy.html',
-    '/github.io/terms-service': 'views/content/terms-service.html',
-    '/github.io/404': 'views/content/404.html',
-    '/github.io/statistics': 'views/content/statistics.html',
-    '/github.io/event-planning': 'views/content/event-planning.html',
+    '/github.io/': '/github.io/views/content/home.html',
+    '/github.io/home': '/github.io/views/content/home.html',
+    '/github.io/about': '/github.io/views/content/about.html',
+    '/github.io/contact': '/github.io/views/content/contact.html',
+    '/github.io/donate': '/github.io/views/content/donate.html',
+    '/github.io/events': '/github.io/views/content/events.html',
+    '/github.io/gallery': '/github.io/views/content/gallery.html',
+    '/github.io/login': '/github.io/views/content/login.html',
+    '/github.io/news': '/github.io/views/content/news.html',
+    '/github.io/opportunities': '/github.io/views/content/opportunities.html',
+    '/github.io/privacy-policy': '/github.io/views/content/privacy-policy.html',
+    '/github.io/terms-service': '/github.io/views/content/terms-service.html',
+    '/github.io/404': '/github.io/views/content/404.html',
+    '/github.io/statistics': '/github.io/views/content/statistics.html',
+    '/github.io/event-planning': '/github.io/views/content/event-planning.html',
 };
 const router = new Router(routes);
 //IIFE - Immediately Invoked Functional Expression
@@ -128,7 +128,7 @@ const router = new Router(routes);
     // Get statistics data from statistics.json in data folder
     async function GetStatisticsData() {
         try {
-            const response = await fetch('data/statistics.json');
+            const response = await fetch('/github.io/data/statistics.json');
             return await response.json();
         }
         catch (error) {
@@ -276,7 +276,7 @@ const router = new Router(routes);
      * @returns {Promise<any>}
      */
     async function GetUserList() {
-        const response = await fetch('data/users.json');
+        const response = await fetch('/github.io/data/users.json');
         try {
             return await response.json();
         }
@@ -340,7 +340,7 @@ const router = new Router(routes);
      * Load a JSON file includes gallery details
      */
     async function LoadGallery() {
-        const response = await fetch('data/gallery.json');
+        const response = await fetch('/github.io/data/gallery.json');
         try {
             return await response.json();
         }
@@ -720,6 +720,7 @@ const router = new Router(routes);
         await LoadHeader();
         await LoadFooter();
         const currentPath = location.pathname;
+        console.log('[INFO] current path: ', currentPath);
         await router.loadRoute(currentPath);
         handlePageLogic(currentPath);
         // Create "Back to Top" button
