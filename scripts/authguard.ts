@@ -21,7 +21,7 @@ export async function AuthGuard(): Promise<void> {
 	const user: string = sessionStorage.getItem('user') || '';
 	const protectedRoutes: string[] = ['/event-planning', '/statistics'];
 
-	if (!user && protectedRoutes.includes(location.pathname)) {
+	if (!user && protectedRoutes.includes(location.hash.slice(1))) {
 		console.log(
 			'[AUTHGUARD] Unauthorized access detected. Redirecting to login page'
 		);

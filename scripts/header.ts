@@ -74,7 +74,7 @@ function DynamicNavbar() {
 	// Add a "Donate" link to navbar
 	const navbarNav = document.querySelector('.navbar-nav') as HTMLElement;
 	navbarNav.innerHTML += `<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="donate">
+								<a class="nav-link" aria-current="page" href="#/donate">
 									<i class="fa-solid fa-hand-holding-dollar me-1"></i></i>Donate
 								</a>
 							</li>`;

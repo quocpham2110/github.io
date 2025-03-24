@@ -15,7 +15,7 @@ document.addEventListener('keypress', resetSession);
 export async function AuthGuard() {
     const user = sessionStorage.getItem('user') || '';
     const protectedRoutes = ['/event-planning', '/statistics'];
-    if (!user && protectedRoutes.includes(location.pathname)) {
+    if (!user && protectedRoutes.includes(location.hash.slice(1))) {
         console.log('[AUTHGUARD] Unauthorized access detected. Redirecting to login page');
         window.dispatchEvent(new CustomEvent('sessionExpired'));
     }
