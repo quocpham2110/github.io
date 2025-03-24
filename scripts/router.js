@@ -22,7 +22,7 @@ export class Router {
         const basePath = path || "";
         if (!this.routes[basePath]) {
             console.warn(`[WARNING] Route not found: ${basePath}, redirecting to 404`);
-            location.pathname = "/404";
+            location.pathname = "/github.io/404";
         }
         return fetch(this.routes[basePath])
             .then((response) => {
