@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Community Clean-Up Drive",
+    "description": "Join us for a neighborhood clean-up to help beautify local parks and streets. Volunteers will pick up litter and sort recyclables. Supplies will be provided.",
+    "dateTime": 1739628000000,
+    "category": "cleanup"
+  },
+  {
+    "title": "Soup Kitchen Assistance",
+    "description": "Help prepare and serve meals to those in need at the local community kitchen. No prior cooking experience is necessary.",
+    "dateTime": 1740085200000,
+    "category": "cleanup"
+  },
+  {
+    "title": "Animal Shelter Care",
+    "description": "Spend time caring for animals by feeding, walking dogs, and helping maintain clean shelter facilities. Great for animal lovers!",
+    "dateTime": 1740495600000,
+    "category": "cleanup"
+  },
+  {
+    "title": "Library Reading Program",
+    "description": "Volunteer to read to children at the public library. Inspire a love of reading and storytelling in young minds.",
+    "dateTime": 1740686400000,
+    "category": "workshop"
+  },
+  {
+    "title": "Senior Center Activity Day",
+    "description": "Assist with games, crafts, and social activities for seniors at the community center. Bring joy and companionship to their day.",
+    "dateTime": 1741028400000,
+    "category": "workshop"
+  },
+  {
+    "title": "Tree Planting Event",
+    "description": "Join an environmental initiative to plant trees and contribute to reforestation efforts in the city park.",
+    "dateTime": 1741608000000,
+    "category": "fundraiser"
+  },
+  {
+    "title": "Food Bank Sorting",
+    "description": "Help sort and package food donations at the local food bank to distribute to families in need.",
+    "dateTime": 1742058000000,
+    "category": "workshop"
+  },
+  {
+    "title": "Youth Mentorship Program",
+    "description": "Spend time mentoring teenagers by sharing skills, career advice, or helping with homework. A great way to give back to the next generation.",
+    "dateTime": 1742504400000,
+    "category": "workshop"
+  },
+  {
+    "title": "Beach Clean-Up Day",
+    "description": "Join the effort to remove trash and debris from the local beach to protect marine life and ensure a clean environment.",
+    "dateTime": 1742902200000,
+    "category": "cleanup"
+  },
+  {
+    "title": "Charity Run Assistance",
+    "description": "Help organize and assist participants in a 5K charity run. Tasks include handing out water, managing registration, and cheering on runners.",
+    "dateTime": 1743328800000,
+    "category": "fundraiser"
+  }
+]

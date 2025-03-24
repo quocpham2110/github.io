@@ -1,0 +1,84 @@
+<!-- Event Planning Page -->
+<div class="container py-5">
+    <h1 class="text-center mb-5">Event Planning</h1>
+
+    <!-- Event Creation Form -->
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Event Details</h5>
+                </div>
+                <div class="card-body">
+                    <form id="eventForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="eventTitle" class="form-label">Event Title</label>
+                                <input type="text" class="form-control" id="eventTitle" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="eventType" class="form-label">Event Type</label>
+                                <select class="form-select" id="eventType" required>
+                                    <option value="">Select Event Type</option>
+                                    <option value="fundraiser">Fundraiser</option>
+                                    <option value="cleanup">Clean up</option>
+                                    <option value="workshop">Workshop</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="dateAndTime" class="form-label">Date and Time</label>
+                                <input type="datetime-local" class="form-control" id="dateAndTime" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="location" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="location" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="eventDescription" class="form-label">Event Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3" required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Create Event</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events List -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Upcoming Events</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="upcomingEventsList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

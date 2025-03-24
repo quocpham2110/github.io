@@ -1,0 +1,21 @@
+{
+  "totalMembers": 1250,
+  "activeEvents": 15,
+  "totalDonations": 25000,
+  "volunteerHours": {
+      "labels": ["Events", "Administration", "Outreach", "Training"],
+      "data": [2000, 1500, 1000, 500]
+  },
+  "membershipGrowth": {
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "data": [1000, 1050, 1100, 1150, 1200, 1250]
+  },
+  "eventParticipation": {
+      "labels": ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5"],
+      "data": [150, 200, 180, 220, 190]
+  },
+  "donationDistribution": {
+      "labels": ["Individual", "Corporate", "Grants", "Other"],
+      "data": [40, 30, 20, 10]
+  }
+}

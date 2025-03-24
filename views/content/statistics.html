@@ -1,0 +1,81 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Statistics</h1>
+    
+    <!-- Overview Cards -->
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Members</h5>
+                    <h2 class="card-text" id="totalMembers">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Active Events</h5>
+                    <h2 class="card-text" id="activeEvents">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Donations</h5>
+                    <h2 class="card-text" id="totalDonations">$0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Volunteer Hours</h5>
+                    <h2 class="card-text" id="volunteerHours">0</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Membership Chart -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Membership Growth</h5>
+                    <canvas id="membershipChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Participation Chart -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Event Participation</h5>
+                    <canvas id="eventChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Chart -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Donation Distribution</h5>
+                    <canvas id="donationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volunteer Hours Chart -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Volunteer Hours by Category</h5>
+                    <canvas id="volunteerChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

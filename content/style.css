@@ -1,0 +1,15 @@
+.carousel-item > img {
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
