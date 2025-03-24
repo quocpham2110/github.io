@@ -33,21 +33,21 @@ const pageTitle: Record<string, string> = {
 };
 
 const routes: RouterMap = {
-    '/github.io/': '/github.io/views/content/home.html',
-    '/github.io/home': '/github.io/views/content/home.html',
-    '/github.io/about': '/github.io/views/content/about.html',
-    '/github.io/contact': '/github.io/views/content/contact.html',
-    '/github.io/donate': '/github.io/views/content/donate.html',
-    '/github.io/events': '/github.io/views/content/events.html',
-    '/github.io/gallery': '/github.io/views/content/gallery.html',
-    '/github.io/login': '/github.io/views/content/login.html',
-    '/github.io/news': '/github.io/views/content/news.html',
-    '/github.io/opportunities': '/github.io/views/content/opportunities.html',
-    '/github.io/privacy-policy': '/github.io/views/content/privacy-policy.html',
-    '/github.io/terms-service': '/github.io/views/content/terms-service.html',
-    '/github.io/404': '/github.io/views/content/404.html',
-    '/github.io/statistics': '/github.io/views/content/statistics.html',
-    '/github.io/event-planning': '/github.io/views/content/event-planning.html',
+    '/github.io/': './views/content/home.html',
+    '/github.io/home': './views/content/home.html',
+    '/github.io/about': './views/content/about.html',
+    '/github.io/contact': './views/content/contact.html',
+    '/github.io/donate': './views/content/donate.html',
+    '/github.io/events': './views/content/events.html',
+    '/github.io/gallery': './views/content/gallery.html',
+    '/github.io/login': './views/content/login.html',
+    '/github.io/news': './views/content/news.html',
+    '/github.io/opportunities': './views/content/opportunities.html',
+    '/github.io/privacy-policy': './views/content/privacy-policy.html',
+    '/github.io/terms-service': './views/content/terms-service.html',
+    '/github.io/404': './views/content/404.html',
+    '/github.io/statistics': './views/content/statistics.html',
+    '/github.io/event-planning': './views/content/event-planning.html',
 };
 
 const router: Router = new Router(routes);
@@ -365,7 +365,7 @@ const router: Router = new Router(routes);
     function LoginPage() {
         const authenticatedUser: string = sessionStorage.getItem('user') || '';
         if (authenticatedUser) {
-            router.navigate("/github.io");
+            router.navigate("/github.io/");
         }
 
         const username = document.getElementById('username') as HTMLInputElement;
@@ -863,9 +863,11 @@ const router: Router = new Router(routes);
     }
 
     function handlePageLogic(path: string): void {
+        // Remove the /github.io/ prefix for page title lookup
+        const pathWithoutPrefix = path.replace('/github.io', '');
         document.title = pageTitle[path] || 'Untitled Page';
 
-        switch (path) {
+        switch (pathWithoutPrefix) {
             case '/':
                 HomePage();
                 break;
