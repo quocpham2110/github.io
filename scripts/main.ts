@@ -914,8 +914,11 @@ const router: Router = new Router(routes);
 
         const currentPath = location.pathname;
         console.log('[INFO] current path: ', currentPath);
-        await router.loadRoute(currentPath);
-        handlePageLogic(currentPath);
+        
+        // Remove /github.io/ prefix from currentPath for routing
+        const pathWithoutPrefix = currentPath.replace('/github.io', '');
+        await router.loadRoute(pathWithoutPrefix);
+        handlePageLogic(pathWithoutPrefix);
 
         // Create "Back to Top" button
         const backToTopButton = document.createElement('button') as HTMLButtonElement;
